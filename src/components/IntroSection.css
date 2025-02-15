@@ -1,0 +1,42 @@
+
+
+.profile-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h3 {
+    color: #0096c7;
+    margin: 25px 0 0 0;
+    font-weight: 500;
+    font-family: "Ubuntu Sans", serif;
+    font-style: normal;
+}
+
+h5 {
+    margin: 7px 0 25px 0;
+}
+
+p {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+    max-width: 800px;
+}
+  
+.icon-container {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+}
+.icon-container a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+.icon-container a:hover {
+    color: #0077b5;
+}

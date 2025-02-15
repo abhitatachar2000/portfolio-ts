@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import {  useRef } from "react";
 import "./NavBar.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
