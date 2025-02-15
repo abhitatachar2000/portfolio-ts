@@ -10,9 +10,19 @@
     transform-origin: center;
     font-variation-settings: "wght" 300;
     font-feature-settings: "ss01";
+    text-align: center;
 }
 
 .NavBarItem:hover {
-    transform: scale(1.01);
+    transform: scale(1.04);
     color: #ffffff !important;
+}
+
+@media (max-width: 991px) {
+    .NavBarItem {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
