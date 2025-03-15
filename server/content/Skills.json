@@ -1,0 +1,38 @@
+{
+    "skills": {
+        "Programming and Scripting Languages": [
+            "Python", "Javascript", "Typescript", "Java", "Bash"
+        ],
+        "Web Development": [
+            "HTML", "CSS", "JavaScript", "TypeScript", "SAP UI5", "Fiori Elements", "React.js", "Next.js", "Node.js", "Express.js"
+        ],
+        "Database Management": [
+            "PostgreSQL", "MySQL", "Firebase", "Chroma Vector Database", "MongoDB"
+        ],
+        "API Design, Development and Documentation": [
+            "REST APIs", "FastAPI", "Node.js", "Swagger", "GraphQL", "OAuth", "API Gateway"
+        ],
+        "DevOps & Version Control": [
+            "Git", "GitHub", "Docker", "Kubernetes", "Jenkins", "Azure Pipelines", "Ansible", "Helm Charts", "Monitoring & Logging", "Terraform"
+        ],
+        "Cloud Engineering": [
+            "Amazon Web Services (AWS)", "SAP BTP", "Cloud Foundry", "Serverless Architecture", "Cloud Security"
+        ],
+        "AI & Machine Learning": [
+            "Scikit-Learn", "TensorFlow", "Keras", "Natural Language Processing (NLP)",
+            "HuggingFace", "Langchain", "OpenAI API", "SentenceTransformers", "Retrival Augmented Generation", "Feature Engineering"
+        ],
+        "Data Analysis & Visualization": [
+            "NumPy", "Pandas", "Seaborn", "Matplotlib"
+        ],
+        "System Design & Architecture": [
+            "System Design Patterns", "Architecture & Flow Diagrams", "Microservices", "Event-Driven Architecture", "Graph Databases", "Scaling Strategies"
+        ],
+        "Project Management": [
+            "Agile Methodologies", "Scrum", "SAFe", "Sprint Planning", "JIRA", "Confluence", "Stakeholder Communication"
+        ],
+        "Leadership & Soft Skills": [
+            "Ownership", "Effective Communication", "Structured Thinking", "Storytelling", "Mentoring", "Cross-Team Collaboration", "Conflict Resolution"
+        ]
+    }
+}

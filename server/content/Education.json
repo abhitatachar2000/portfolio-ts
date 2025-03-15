@@ -1,0 +1,25 @@
+{
+  "education": [
+    {
+      "title": "Specialization in System Design and Architecture",
+      "institution": "University of Alberta",
+      "start": "November 2024",
+      "end": "January 2025",
+      "description": "Software Design and Architecture Specialization from the University of Alberta. I gained expertise in Object-Oriented Design, Design Patterns, Software Architecture, and Service-Oriented Architecture. With over 50 hours of coursework, I learned to create design diagrams, apply design patterns, and develop flexible, maintainable software aligned with industry best practices."
+    },
+    {
+      "title": "Master of Technology in Software Engineering",
+      "institution": "Birla Institute of Technology And Science, Pilani",
+      "start": "August 2022",
+      "end": "June 2024",
+      "description": "MTech in Software Engineering with expertise in Software Architecture, OOD, Testing, Cloud Computing, DevOps, and Machine Learning. Focused on applied learning, I developed projects like a SaaS-based Student Database on AWS and a GenAI-powered Scrum Supporter."
+    },
+    {
+      "title": "Bachelor of Engineering in Information Science",
+      "institution": "Global Academy of Technology",
+      "start": "August 2018",
+      "end": "August 2022",
+      "description": "Bachelor of Engineering in Information Science with a strong foundation in Data Structures and Algorithms, Operating Systems, Database Management Systems, Computer Networks, Web Design and Development, Machine Learning, and Artificial Intelligence. Participated in hackathons and developed projects like a Supply Chain Management System and an Optical Flow Analysis-Based Real-Time Intelligent Video Surveillance System. Published seven research papers in the domains of the Internet of Things, Wireless Sensor Networks, and Machine Learning."
+    }
+  ]
+}

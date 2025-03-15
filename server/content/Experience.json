@@ -1,0 +1,44 @@
+{
+  "experience": [
+    {
+      "title": "Fullstack Cloud Engineer",
+      "company": "SAP Labs India",
+      "startDate": "March 2024",
+      "endDate": "Present",
+      "type": "Fulltime",
+      "description": "I design, develop, and deploy scalable SaaS solutions in a hybrid cloud environment, focusing on automation, provisioning, and seamless integration. I build tenant management tools that enhance operational efficiency and collaborate with product owners and architects to develop high-impact features that drive user adoption. Additionally, I contribute to DevOps initiatives, optimizing deployment pipelines and ensuring system reliability."
+    },
+    {
+      "title": "GenAI Developer",
+      "company": "SAP Labs India",
+      "startDate": "May 2023",
+      "endDate": "March 2024",
+      "type": "Work-Study",
+      "description": "I design and develop AI-powered business applications using Large Language Models (LLMs), focusing on AI agents, tools, and integrations. I translate experimental AI enhancements into production-ready solutions through code optimization and API integration. Notable contributions include implementing RAG pipelines for the SAP Business Decision Simulator AI Agent, improving context relevance by 40%, and architecting an AI-powered agent for SAP Regulatory Insights, increasing task efficiency by 20%. Additionally, I have researched hybrid search techniques on business data, demonstrating superior results using reciprocal rank fusion."
+    },
+    {
+      "title": "Fullstack Developer",
+      "company": "SAP Labs India",
+      "startDate": "August 2023",
+      "endDate": "May 2023",
+      "type": "Work-Study",
+      "description": "I developed tools and frameworks to enable scalable adoption of SAP Fiori Elements, working closely with application and infrastructure teams. Key contributions include implementing variant management for SAP FE charts, enhancing personalization and persistence, and integrating SAP FE V4 applications into My Inbox UI with asynchronous functionality. Additionally, I organized Synergy Bytes workshops to promote cross-team knowledge sharing and received a Special Award for outstanding contributions."
+    },
+    {
+      "title": "Research and Development and Stakeholder Engagement Intern",
+      "company": "Dhi Innovation Center",
+      "startDate": "October 2021",
+      "endDate": "March 2022",
+      "type": "Internship",
+      "description": "I led the R&D of an intelligent cane for visually impaired individuals, achieving 90% obstacle detection accuracy using HC-SR-04 ultrasonic sensors and vibration alerts. I collaborated with an NGO for the blind to refine prototypes through user-centered design, ensuring real-world usability. This project showcased my leadership, technical expertise, and innovation in assistive technology."
+    },
+    {
+      "title": "Machine Learning and IOT Research Intern",
+      "company": "Smart ICT Solutions PTY LTD",
+      "startDate": "March 2021",
+      "endDate": "January 2022",
+      "type": "Internship",
+      "description": "I designed and developed an intelligent water sprinkler system that optimizes irrigation using real-time field data, reducing water wastage by 40%. By integrating machine learning and predictive analytics, I minimized reliance on additional sensors. I built a Wireless Sensor Network (WSN) using ZigBee for seamless data transmission and published three research papers analyzing ZigBee, Bluetooth, LoRaWAN, and Wi-Fi for intelligent systems based on range and environmental factors."
+    }
+  ]
+}

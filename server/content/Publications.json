@@ -1,0 +1,68 @@
+{
+    "publications": [
+        {
+            "title": "A Secured Surveillance System Employing Dense Optical Flow Estimation",
+            "journal": "International Journal of Engineering Research & Technology (IJERT)",
+            "publication_date": "16 July, 2022",
+            "summary": "The research presents an automated surveillance system using YOLOv3 object detection and dense optical flow estimation to identify weapons and detect anomalies. The system has potential applications in security-sensitive environments, with future improvements focusing on optimizing storage for crime footage and reducing false detections.",
+            "authors": "Other authors",
+            "link": "https://www.ijert.org/a-secured-surveillance-system-employing-dense-optical-flow-estimation"
+        },
+        {
+            "title": "The Background Study for An Optical Flow Analysis Based Real Time Intelligent Video Surveillance System for People Safety",
+            "journal": "International Journal of Innovative Research in Technology",
+            "publication_date": "28 February, 2022",
+            "summary": "The goal of this paper is to offer a background study on surveillance systems that used motion estimation and optical flow analysis to detect unusual actions.",
+            "authors": "Other authors",
+            "link": "https://ijirt.org/Article?manuscript=154064"
+        },
+        {
+            "title": "Recommendations for the Best Communication Technologies for Automated Systems in Urban and Rural Environments",
+            "journal": "International Research Journal of Engineering and Technology (IRJET)",
+            "publication_date": "21 September, 2021",
+            "summary": "This paper concentrates on why automated systems require communication facilities and what are the ideal communication protocols that the automated systems installed in rural and urban areas.",
+            "authors": "Other authors",
+            "link": "https://www.irjet.net/archives/V8/i9/IRJET-V8I9160.pdf"
+        },
+        {
+            "title": "Comparative Assessment of Regression Models Based On Model Evaluation Metrics",
+            "journal": "International Research Journal of Engineering and Technology (IRJET)",
+            "publication_date": "18 September, 2021",
+            "summary": "This paper aims to implement these models and evaluate the predictions based on certain metrics such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MEA), R2, and Adjusted R2.",
+            "authors": "Other authors",
+            "link": "https://www.irjet.net/archives/V8/i9/IRJET-V8I9127.pdf"
+        },
+        {
+            "title": "Ideal Communication Facilities For Smart Irrigation Systems In Short Range And Long Range Scenarios",
+            "journal": "Journal Of Signal Processing",
+            "publication_date": "13 August, 2021",
+            "summary": "This paper aims at reviewing certain approaches to smart irrigation from the perspective of communication technologies used and perceive ideal communication technologies that can be used for communication over a shorter range and for the communication over longer range.",
+            "authors": "Other authors",
+            "link": "https://matjournals.co.in/index.php/JOSP/article/view/3568"
+        },
+        {
+            "title": "Zigbee, It's Applications and Comparison with Other Short Range Network Technologies",
+            "journal": "International Journal of Engineering Research & Technology (IJERT)",
+            "publication_date": "03 July, 2021",
+            "summary": "This paper covers the basic concepts of ZigBee technology, two important applications of ZigBee – Home Automation and Smart Irrigation Systems, and a comparative study of ZigBee with other short-range protocols such as Wi-Fi and Bluetooth.",
+            "authors": "Other authors",
+            "link": "https://www.ijert.org/zigbee-its-applications-and-comparison-with-other-short-range-network-technologies"
+        },
+        {
+            "title": "Object Oriented Programming Concepts Using Python",
+            "journal": "International Research Journal of Engineering and Technology",
+            "publication_date": "25 March, 2021",
+            "summary": "This paper is based on how object-oriented concepts can be implemented using the Python programming language.",
+            "authors": "Other authors",
+            "link": "https://mail.irjet.net/archives/V8/i3/IRJET-V8I3315.pdf"
+        },
+        {
+            "title": "An Automated Attendance System Based on the Concept of Histogram of Oriented Gradients",
+            "journal": "MAT Journals",
+            "publication_date": "10 November, 2020",
+            "summary": "This paper concentrates on an automated attendance system that makes use of face recognition to identify the person and mark attendance for that particular student.",
+            "authors": "Other authors",
+            "link": "https://matjournals.co.in/index.php/JOIPAI/issue/view/480"
+        }
+    ]
+}
