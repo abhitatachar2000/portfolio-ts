@@ -1,32 +1,72 @@
-
+.intro-section {
+    padding-top: 75px;
+}
 
 .profile-img {
-    max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 50%;
+    width: 200px;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
-h3 {
-    color: #0096c7;
-    margin: 25px 0 0 0;
-    font-weight: 500;
-    font-family: "Ubuntu Sans", serif;
+.profile-badge{
+    background-color: #ade8f4;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 300;
+}
+
+.intro-h1 {
+    color: #01497c;
+    font-weight: 700;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
     font-style: normal;
+    text-align: center;
+    margin: 0;
+    line-height: 1.2;
+    font-size: 3.5rem;
 }
 
-h5 {
+.name-container {
+    margin: 45px auto;
+}
+
+.intro-h5 {
     margin: 7px 0 25px 0;
 }
 
-p {
+.intro-p {
+    padding-right: 10px;
+    margin-right: 5px;
+    text-align: center;
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-weight: 550;
     font-size: 16px;
-    line-height: 1.8;
-    color: #333;
-    text-align: justify;
+    color: #000;
     max-width: 800px;
+    line-height: 2.0;
 }
-  
+
+.contact-button {
+    border: none;
+    padding: 7px 15px;
+    border-radius: 5px;
+    background-color: #01497c;
+    margin-top: 30px;
+}
+
+.contact-button:hover,
+.contact-button:focus,
+.contact-button:active {
+    background-color: #2a6f97;
+}
+
 .icon-container {
     display: flex;
     gap: 20px;
@@ -38,5 +78,12 @@ p {
     transition: color 0.3s ease;
 }
 .icon-container a:hover {
-    color: #0077b5;
+    color: #000000;
+}
+
+
+@media screen and (max-width: 768px) {
+    .intro-h1 {
+        font-size: 2rem;
+    }
 }

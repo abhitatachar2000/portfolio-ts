@@ -1,0 +1,25 @@
+.contact-section {
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.contact-h1 {
+    color: #0096c7;
+    font-weight: 700;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-style: normal;
+    text-align: center;
+    margin: 0;
+    line-height: 1.2;
+    font-size: 2.5rem;
+}
+
+.submit-button {
+    background-color: #01497c;
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: #023e8a;
+    color: white;
+}

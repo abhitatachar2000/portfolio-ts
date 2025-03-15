@@ -1,31 +1,28 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./IntroSection.css";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faDownload, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
 export function IntroSection() {
     return (
-        <section id="Home">
+        <section id="Home" className="intro-section">
             <img className="profile-img"
-                src="src/assets/images/profile.png" 
+                src="/assets/images/profile2.png" 
                 alt="profile-photo" 
             />
-            <h3>Abhishek Vasudev Tatachar</h3>
-            <h5>Fullstack Cloud Engineer</h5>
-            <p style={{paddingRight: "10px"}}>I specialize in architecting and developing scalable SaaS applications, cloud security, and AI-driven solutions. With expertise in Python, JavaScript, and Java, I build high-performing systems using React, Node.js, and Spring Boot. I have hands-on experience with AWS (Lambda, EKS, S3), Kubernetes, and CI/CD pipelines. As an AWS Certified Solutions Architect, I focus on optimizing cloud architectures, identity management, and security in hybrid environments. Additionally, I have a strong research background with eight published papers in AI, Image Processing, and Cloud Applications.</p>
-            <div className="icon-container">
-                <a href="https://www.linkedin.com/in/abhishektatachar" target="_blank">
-                    <FontAwesomeIcon icon={faLinkedin} color="#0077b6" />
-                </a>
-                <a href="mailto:abhishektatachar@gmail.com" target="_blank">
-                    <FontAwesomeIcon icon={faEnvelope}  color="#0077b6"/>
-                </a>
-                <a href="https://github.com/abhitatachar2000" target="_blank">
-                    <FontAwesomeIcon icon={faGithub} color="#0077b6"/>
-                </a>
-                <a href="public/Abhishek V Tatachar - Resume.pdf" target="_blank">
-                    <FontAwesomeIcon icon={faDownload} color="#0077b6"/>
-                </a>
+            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <span className="badge profile-badge">Fullstack Developer</span>
+                    <div className="name-container">
+                        <h1 className="intro-h1">Hi, I'm</h1>
+                        <h1 className="intro-h1">Abhishek Vasudev Tatachar</h1>
+                    </div>
+
+                    <p className="intro-p">I am a cloud solutions architect and AI-driven application developer specializing in scalable, secure SaaS solutions. Proficient in Python, JavaScript, and Java, I build high-performance applications with React, Node.js, and Spring Boot, leveraging AWS, Kubernetes, and CI/CD for automation and scalability. As an AWS Certified Solutions Architect, I ensure secure deployments with expertise in cloud security, identity management, DevOps, and infrastructure as code (IaC). With eight published research papers in AI, Image Processing, and Cloud Applications, I integrate cutting-edge research with real-world innovation.</p>
+                    <button 
+                        type="button" 
+                        className="btn btn-primary contact-button"
+                        onClick={() => document.getElementById('Contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                        Contact
+                    </button>
+                </div>
             </div>
         </section>
     );

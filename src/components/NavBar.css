@@ -1,28 +1,28 @@
 .NavBarComponent {
-    background-color: #00b4d8 !important;
+    background-color: #ffffff !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: auto;
 }
 
 .NavBarItem {
-    color: #caf0f8 !important;
+    color: #0096C7 !important;
     transition: color 0.3s ease;
-    font-weight: normal;
+    font-weight: 500 !important;
     padding: 0 10px;
     transform-origin: center;
-    font-variation-settings: "wght" 300;
     font-feature-settings: "ss01";
     text-align: center;
 }
 
 .NavBarItem:hover {
-    transform: scale(1.04);
-    color: #ffffff !important;
+    color: #0077B6 !important;
 }
 
 @media (max-width: 991px) {
-    .NavBarItem {
-        padding: 10px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .navbar-toggler {
+        position: absolute;
+        left: 10px;
+        top: 10px;
     }
 }

@@ -1,0 +1,43 @@
+.notFound { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use height instead of min-height */
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.notFoundText {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: #023E8A;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notFoundImage {
+    max-width: 600px;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin: 20px;
+}
+
+.notFoundRedirectButton {
+    background-color: #023E8A;
+    color: white;
+    transition: background-color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 25px;
+}
+
+.notFoundRedirectButton:hover {
+    background-color: #2a6f97;
+}
+
+.notFoundRedirectButton:active {
+    background-color: #023E8A;
+}
