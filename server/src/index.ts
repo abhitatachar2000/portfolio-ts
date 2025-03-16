@@ -9,6 +9,8 @@ const publicationsData = require('../content/Publications.json')
 const fs = require('fs');
 const path = require('path');
 
+const uri = "mongodb+srv://<db_username>:<db_password>@abhishektatachar-portfo.yeppm.mongodb.net/?retryWrites=true&w=majority&appName=abhishektatachar-portfolio";
+
 dotenv.config();
 const app = express();
 const PORT = Number(process.env.PORT) || 8080;
