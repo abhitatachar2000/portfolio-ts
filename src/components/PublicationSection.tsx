@@ -28,7 +28,7 @@ export function PublicationSection() {
             {(publicationsData ?? []).map((data: PublicationData) => {
                 return (
                     <div className="card" style={{width: "100%", marginBottom: "10px"}}>
-                    <div className="card-header pub-header" style={{ height: '80px', display: 'flex', alignItems: 'center' }}>
+                    <div className="card-header pub-header" style={{ minHeight: '80px', display: 'flex', alignItems: 'center' }}>
                         <strong>{data.title}</strong>
                     </div>
                     <div className="card-body">
