@@ -14,11 +14,12 @@ type ExperienceData = {
 export function ExperienceSection() {
     const [experienceData, setExperienceData] = useState<Array<ExperienceData>>([]);
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const baseAppUrl = getServerUrl() || 'http://localhost:8080';
+    const baseAppUrl = getServerUrl();
+    const apiUrl = baseAppUrl ? `${baseAppUrl}/api/portfolio/Experience` : 'http://localhost:8080/api/portfolio/Experience';
     
     useEffect(() => {
-        fetch(`${baseAppUrl}/api/portfolio/Experience`).then(response => response.json()).then(data => setExperienceData(data)).catch(error => console.error('Error fetching education data:', error));
-    }, [])
+        fetch(apiUrl).then(response => response.json()).then(data => setExperienceData(data)).catch(error => console.error('Error fetching experience data:', error));
+    }, [apiUrl])
 
     return (
         <section id="Experience" className="exp-section">
@@ -29,7 +30,8 @@ export function ExperienceSection() {
                     <div className="col-12 col-md-4 mb-3">
                         <div className="col-md-12">
                             <div className="list-group">
-                            {experienceData.map((exp, index) => (
+                            {
+                            experienceData.map((exp, index) => (
                                 <button
                                     key={index}
                                     className={`list-group-item list-group-item-action p-3 ${

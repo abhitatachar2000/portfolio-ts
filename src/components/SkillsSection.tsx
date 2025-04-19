@@ -1,9 +1,14 @@
 import { getServerUrl } from "../commonUtils";
 import "./SkillsSection.css";
 import { useEffect, useState } from "react";
+
+type skill = {
+    title: string,
+    skills: string[]
+}
  
 export function SkillSection() {
-    const [skillsData, setSkillsData] = useState<Record<string, string[]>>({});
+    const [skillsData, setSkillsData] = useState<skill[]>([]);
     const baseApiRoute = getServerUrl() || 'http://localhost:8080';
     useEffect(() => {
         fetch(`${baseApiRoute}/api/portfolio/Skills`)
@@ -17,19 +22,19 @@ export function SkillSection() {
             <p className="exp-oneLiner">Research papers and articles I've authored or co-authored in the field of Artificial Intelligence and Software Engineering</p>
             <div className="accordion" id="accordionExample">
             {
-                Object.keys(skillsData).map((key: string, index: number) => {
+                skillsData.map((skill: skill, index: number) => {
                     return (
-                        <div className="accordion-item">
+                        <div key={index} className="accordion-item">
                             <h2 className="accordion-header " id={`headingAccordion-${index}`}>
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse-${index}`} aria-expanded="false" aria-controls={`collapse-${index}`}>
-                                    <strong>{key}</strong>
+                                    <strong>{skill.title}</strong>
                                 </button>
                             </h2>
                             <div id={`collapse-${index}`} className="accordion-collapse collapse" aria-labelledby={`headingAccordion-${index}`} data-bs-parent="#accordionExample">
                                 <div className="accordion-body">
                                 <ul className="list-group list-group-flush">
-                                {skillsData[key as keyof typeof skillsData]?.map((skill: any, i: number) => (
-                                    <li key={i} className="list-group-item">{skill}</li>
+                                {skill.skills.map((skillItem: string, i: number) => (
+                                    <li key={i} className="list-group-item">{skillItem}</li>
                                 ))}
                                 </ul>
                                 </div>

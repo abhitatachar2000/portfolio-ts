@@ -2,25 +2,34 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { error } from "console";
-const educationData = require('../content/Education.json');
-const experienceData = require('../content/Experience.json');
-const skillsData = require('../content/Skills.json');
-const publicationsData = require('../content/Publications.json')
+import { MongoDBManager } from "./MongoDBManager";
+import Experience from './models/Experience';
+import Education from './models/Education';
+import Skills from './models/Skills';
+import Publication from "./models/Publications";
+
+dotenv.config();
+
 const fs = require('fs');
 const path = require('path');
 
-const uri = "mongodb+srv://<db_username>:<db_password>@abhishektatachar-portfo.yeppm.mongodb.net/?retryWrites=true&w=majority&appName=abhishektatachar-portfolio";
+const mongoDBManager = new MongoDBManager();
+mongoDBManager.connectToDB()
 
-dotenv.config();
 const app = express();
-const PORT = Number(process.env.PORT) || 8080;
+const PORT = Number(process.env.VITE_SERVERPORT) || 8080;
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/portfolio/Experience", (req, res) => {
+app.get('/health', (req, res) => {
+    res.status(200).json("Application up and running");
+});
+
+app.get("/api/portfolio/Experience", async (req, res) => {
     try {
-        res.status(200).json(experienceData["experience"])
+        const experiences = await Experience.find();
+        res.json(experiences);
     } catch (error) {
         res.status(500).json({error: error})
     }
@@ -40,27 +49,26 @@ app.post("/api/portfolio/Experience", (req, res) => {
         if (missingKeys.length > 0) {
             throw new Error(`Missing required keys: ${missingKeys.substring(2)}`);
         } else {
-            const filePath = path.join(__dirname, '../content/Experience.json');
-            const currentData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            currentData.experience.push(req.body);
-            fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2));
+            const experienceData = new Experience(req.body);
+            experienceData.save();
+            res.status(201).json({message: "New experience item added"})
         }
-        res.status(201).json({message: "New experience item added"})
     } catch {
         res.status(400).json({error: error});    
     }
 })
 
-app.get("/api/portfolio/Education", (req, res) => {
+app.get("/api/portfolio/Education", async (req, res) => {
     try {
-        res.status(200).json(educationData["education"]);
+        const educationData = await Education.find();
+        res.json(educationData);
     } catch (error) {
-        res.status(500).json({ error: 'Error reading education data' });
+        res.status(500).json({ error: `Error reading education data: ${error}` });
     }
 });
 
 app.post("/api/portfolio/Education", (req, res) => {
-    const requiredKeys: string[] = ["Title", "Institution", "Start", "End", "Description"];
+    const requiredKeys: string[] = ["title", "institution", "start", "end", "description"];
     let missingKeys: string = '';
     try {
         const obtainedKeys = Object.keys(req.body);
@@ -72,28 +80,50 @@ app.post("/api/portfolio/Education", (req, res) => {
         if (missingKeys.length > 0) {
             throw new Error(`Missing required keys: ${missingKeys.substring(2)}`);
         } else {
-            const filePath = path.join(__dirname, '../content/Education.json');
-            const currentData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            currentData.education.push(req.body);
-            fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2));
+            const educationData = new Education(req.body);
+            educationData.save();
+            res.status(201).json({message: "New education item created"});
         }
-        res.status(201).json({message: "New education item added"})
     } catch (error) {
         res.status(400).json({ error: error});
     }
 })
 
-app.get('/api/portfolio/Skills', (req, res) => {
+app.get('/api/portfolio/Skills', async (req, res) => {
     try {
-        res.status(200).json(skillsData["skills"]);
+        const skills = await Skills.find();
+        res.status(200).json(skills);
     } catch (error) {
         res.status(400).json({error : error});
     }
 })
 
-app.get('/api/portfolio/Publications', (req, res) => {
+app.post('/api/portfolio/Skills', (req, res) => {
     try {
-        res.status(200).json(publicationsData["publications"]);
+        const requiredKeys: string[] = ['title', 'skills'];
+        let missingKeys: string = '';
+        const obtainedKeys = Object.keys(req.body);
+        requiredKeys.forEach(key => {
+            if (!obtainedKeys.includes(key)){
+                missingKeys = missingKeys.concat(`, ${key}`)
+            }
+        })
+        if (missingKeys.length > 0) {
+            throw new Error(`Missing required keys: ${missingKeys.substring(2)}`);
+        } else {
+            const skills = new Skills(req.body);
+            skills.save();
+            res.status(201).json({message: "New skills item added successfully"});
+        }
+    } catch (error) {
+        res.status(500).json({error: error});
+    }
+})
+
+app.get('/api/portfolio/Publications', async(req, res) => {
+    try {
+        const publicationData = await Publication.find();
+        res.status(200).json(publicationData);
     } catch (error) {
         res.status(400).json({error : error});
     }
@@ -112,12 +142,10 @@ app.post("/api/portfolio/Publications", (req, res) => {
         if (missingKeys.length > 0) {
             throw new Error(`Missing required keys: ${missingKeys.substring(2)}`);
         } else {
-            const filePath = path.join(__dirname, '../content/Publications.json');
-            const currentData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            currentData.publications.push(req.body);
-            fs.writeFileSync(filePath, JSON.stringify(currentData, null, 2));
+            const publicationData = new Publication(req.body);
+            publicationData.save();
+            res.status(201).json({message: "New publication item added successfully."})
         }
-        res.status(201).json({message: "New publication added"})
     } catch (error) {
         res.status(400).json({ error: error});
     }
