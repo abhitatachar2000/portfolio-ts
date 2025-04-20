@@ -18,9 +18,9 @@ export class MongoDBManager {
     private mongoDBUrl: string;
 
     constructor() {
-        this.vaultClientId = process.env.VAULTCREDENTIALS_CLIENT_ID || '';
-        this.vaultClientSecret = process.env.VAULTCREDENTIALS_CLIENT_SECRET || '';
-        this.vaultUrl = process.env.VAULTCREDENTIALS_URL || '';
+        this.vaultClientId = process.env.VITE_VAULTCREDENTIALS_CLIENT_ID || '';
+        this.vaultClientSecret = process.env.VITE_VAULTCREDENTIALS_CLIENT_SECRET || '';
+        this.vaultUrl = process.env.VITE_VAULTCREDENTIALS_URL || '';
         this.mongoDBUrl = process.env.MONGODB_URL || '';
     }
 
