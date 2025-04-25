@@ -2,29 +2,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelopeSquare, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./ContactSection.css";
-import { RefObject, useRef } from "react";
-function handleContactFormSubmission(
-    contactEmail: React.RefObject<HTMLInputElement>,
-    contactName: React.RefObject<HTMLInputElement>,
-    contactSubject: React.RefObject<HTMLInputElement>,
-    contactText: React.RefObject<HTMLTextAreaElement>
-) {
-    if (contactEmail.current && contactName.current && contactSubject.current && contactText.current) { 
-        const mailtoLink = `mailto:abhishektatachar@gmail.com?subject=${encodeURIComponent(contactSubject.current.value)}&body=${encodeURIComponent(`From: ${contactName.current.value}\nReply to: ${contactEmail.current.value}\n\n${contactText.current.value}`)}`; 
-        window.location.href = mailtoLink; 
-        
-        contactName.current.value = '';
-        contactEmail.current.value = '';
-        contactSubject.current.value = '';
-        contactText.current.value = '';
-    }
-}
+import { FormEvent, RefObject, useEffect, useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
+
 
 export function ContactSection() {
-    const contactPersonName = useRef<HTMLInputElement>(null);
-    const contactPersonEmail = useRef<HTMLInputElement>(null);
-    const contactSubject = useRef<HTMLInputElement>(null);
-    const contactText = useRef<HTMLTextAreaElement>(null);
+    const formRef = useRef<HTMLFormElement | null>(null);
+
+    const sendEmail = (e: FormEvent) => {
+        console.log(formRef.current, 'current');
+        e.preventDefault();
+        const serviceID = import.meta.env.VITE_EMAIL_JS_SERVICE_ID;
+        const templateID = import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
+
+        if (formRef.current != null) {
+            emailjs.sendForm(serviceID, templateID, formRef.current, {
+                publicKey: publicKey,
+              }).then(
+                () => {
+                  console.log('Email sent successfully!');
+                },
+                (error) => {
+                  console.error('Failed to send email:', error.text);
+                },
+            );
+        }
+    }
 
     return(
         <section id="Contact" className="contact-section">
@@ -75,31 +79,26 @@ export function ContactSection() {
             <div className="col-12 col-md-6">
                 <div className="card h-100" style={{width: "100%"}}>
                 <div className="card-body">
-                    <form onSubmit={() => {
-                        handleContactFormSubmission(contactPersonEmail as RefObject<HTMLInputElement>, 
-                            contactPersonName as RefObject<HTMLInputElement>,
-                            contactSubject as RefObject<HTMLInputElement>, 
-                            contactText as RefObject<HTMLTextAreaElement>);
-                    }}>
+                    <form ref={formRef} onSubmit={sendEmail}>
                         <div className="mb-3">
                             <div className="row">
                             <div className="col-md-6">
                                 <label htmlFor="nameInput" className="form-label">Name</label>
-                                <input type="text" ref={contactPersonName} className="form-control" id="nameInput" required />
+                                <input type="text" className="form-control" id="nameInput" name="name" required />
                             </div>
                             <div className="col-md-6">
                                 <label htmlFor="emailInput" className="form-label">Email address</label>
-                                <input type="email" ref={contactPersonEmail} className="form-control" id="emailInput" required />
+                                <input type="email" className="form-control" id="emailInput" name="email" required />
                             </div>
                             </div>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="subjectInput" className="form-label">Subject</label>
-                            <input type="text" ref={contactSubject} className="form-control" id="subjectInput" required />
+                            <input type="text" className="form-control" id="subjectInput" name="title" required />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlTextarea1" className="form-label">Email Content</label>
-                            <textarea className="form-control" ref={contactText} id="exampleFormControlTextarea1" required ></textarea>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" name="message" required ></textarea>
                         </div>
                         <button type="submit" className="btn submit-button">Submit</button>
                     </form>

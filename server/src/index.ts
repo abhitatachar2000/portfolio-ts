@@ -7,6 +7,7 @@ import Experience from './models/Experience';
 import Education from './models/Education';
 import Skills from './models/Skills';
 import Publication from "./models/Publications";
+import { VaultManager } from "./VaultManager";
 
 dotenv.config();
 

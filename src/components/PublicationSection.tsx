@@ -25,9 +25,9 @@ export function PublicationSection() {
         <section id="Publications" className="pub-section">
             <h1 className="pub-h1">Publications</h1>
             <p className="exp-oneLiner">Research papers and articles I've authored or co-authored in the field of Artificial Intelligence and Software Engineering</p>
-            {(publicationsData ?? []).map((data: PublicationData) => {
+            {(publicationsData ?? []).map((data: PublicationData, index) => {
                 return (
-                    <div className="card" style={{width: "100%", marginBottom: "10px"}}>
+                    <div key={index} className="card" style={{width: "100%", marginBottom: "10px"}}>
                     <div className="card-header pub-header" style={{ minHeight: '80px', display: 'flex', alignItems: 'center' }}>
                         <strong>{data.title}</strong>
                     </div>
