@@ -1,26 +1,22 @@
 # For react application 2 level builds are required.
 # In the level 1, we build the application to /app/dist - makes the complete application available as s set of HTML/CSS/JS.
 
-
 FROM node:latest as build
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY . .
+
+# Remove build-related folders
+RUN rm -rf server/ node_modules/ .git/ .github/ tests/ docs/ dist/ build/ .vite/ coverage/
 
 RUN npm install
 
-COPY . .
-
-RUN rm -rf server/
-
 RUN npm run build
-
 
 # Level 2 build - we copy all the dist files into the nginix html folder and make it available for serving in prod mode.
 
 FROM nginx:alpine
-
 
 COPY --from=build /app/dist /usr/share/nginx/html
 

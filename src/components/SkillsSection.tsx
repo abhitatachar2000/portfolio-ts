@@ -1,4 +1,3 @@
-import { getServerUrl } from "../commonUtils";
 import "./SkillsSection.css";
 import { useEffect, useState } from "react";
 
@@ -9,9 +8,8 @@ type skill = {
  
 export function SkillSection() {
     const [skillsData, setSkillsData] = useState<skill[]>([]);
-    const baseApiRoute = getServerUrl() || 'http://localhost:8080';
     useEffect(() => {
-        fetch(`${baseApiRoute}/api/portfolio/Skills`)
+        fetch(`/api/portfolio/Skills`)
             .then(response => response.json())
             .then(data => setSkillsData(data))
             .catch(error => console.error('Error fetching skills data:', error));

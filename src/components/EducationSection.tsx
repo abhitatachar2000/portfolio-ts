@@ -1,4 +1,3 @@
-import { getServerUrl } from "../commonUtils";
 import "./EducationSection.css";
 import { useState, useEffect } from 'react';
 
@@ -12,9 +11,8 @@ export type EducationData = {
 
 export function EducationSection() {
     const [educationData, setEducationData] = useState<Array<EducationData>>([]);
-    const baseApiRoute = getServerUrl() || 'http://localhost:8080';
     useEffect(() => {
-        fetch(`${baseApiRoute}/api/portfolio/Education`)
+        fetch(`/api/portfolio/Education`)
             .then(response => response.json())
             .then(data => setEducationData(data))
             .catch(error => console.error('Error fetching education data:', error));

@@ -1,4 +1,3 @@
-import { getServerUrl } from "../commonUtils";
 import "./ExperienceSection.css";
 import { useState, useEffect } from 'react';
 
@@ -14,12 +13,13 @@ type ExperienceData = {
 export function ExperienceSection() {
     const [experienceData, setExperienceData] = useState<Array<ExperienceData>>([]);
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const baseAppUrl = getServerUrl();
-    const apiUrl = baseAppUrl ? `${baseAppUrl}/api/portfolio/Experience` : 'http://localhost:8080/api/portfolio/Experience';
     
     useEffect(() => {
-        fetch(apiUrl).then(response => response.json()).then(data => setExperienceData(data)).catch(error => console.error('Error fetching experience data:', error));
-    }, [apiUrl])
+        fetch(`/api/portfolio/Experience`)
+            .then(response => response.json())
+            .then(data => setExperienceData(data))
+            .catch(error => console.error('Error fetching experience data:', error));
+    }, []);
 
     return (
         <section id="Experience" className="exp-section">

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelopeSquare, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./ContactSection.css";
-import { FormEvent, RefObject, useEffect, useRef, useState } from "react";
+import { FormEvent, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
 

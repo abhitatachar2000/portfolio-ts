@@ -18,7 +18,7 @@ const mongoDBManager = new MongoDBManager();
 mongoDBManager.connectToDB()
 
 const app = express();
-const PORT = Number(process.env.VITE_SERVERPORT) || 8080;
+const PORT = Number(process.env.VITE_SERVERPORT) || 5000;
 
 app.use(cors());
 app.use(express.json());

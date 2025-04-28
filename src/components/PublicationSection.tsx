@@ -1,4 +1,3 @@
-import { getServerUrl } from "../commonUtils";
 import "./PublicationSection.css";
 
 import { useState, useEffect } from 'react';
@@ -14,9 +13,8 @@ export type PublicationData = {
 
 export function PublicationSection() {
     const [publicationsData, setPublicationsData] = useState<Array<PublicationData>>([]);
-    const baseApiRoute = getServerUrl() || 'http://localhost:8080';
     useEffect(() => {
-        fetch(`${baseApiRoute}/api/portfolio/Publications`)
+        fetch(`/api/portfolio/Publications`)
             .then(response => response.json())
             .then(data => setPublicationsData(data))
             .catch(error => console.error('Error fetching publication data:', error));

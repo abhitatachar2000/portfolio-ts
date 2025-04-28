@@ -1,0 +1,53 @@
+version: 3.8
+services:
+  app-server:
+    build:
+      context: ./server
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    volumes:
+      - ./server:/server
+    environment:
+      - VITE_VAULTCREDENTIALS_CLIENT_ID=
+      - VITE_VAULTCREDENTIALS_CLIENT_SECRET=
+      - VITE_VAULTCREDENTIALS_URL=
+      - VITE_MONGODB_URL=
+
+  
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    environment:
+      - VITE_SERVERPORT=5000
+      - VITE_EMAIL_JS_SERVICE_ID=
+      - VITE_EMAIL_JS_TEMPLATE_ID=
+      - VITE_EMAIL_JS_PUBLIC_KEY=      
+  
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-portfolio
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    depends_on:
+      - frontend
+      - app-server
+    networks:
+      - app-network
+    restart: always
+    
+
+
+networks:
+  app-network:
+    driver: bridge
+  
