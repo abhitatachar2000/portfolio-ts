@@ -6,6 +6,7 @@ import { FormEvent, useRef } from "react";
 import emailjs from '@emailjs/browser';
 
 
+
 export function ContactSection() {
     const formRef = useRef<HTMLFormElement | null>(null);
 
@@ -21,12 +22,14 @@ export function ContactSection() {
                 publicKey: publicKey,
               }).then(
                 () => {
-                  console.log('Email sent successfully!');
+                  alert("Email sent successfully!")
                 },
                 (error) => {
-                  console.error('Failed to send email:', error.text);
+                  alert(`Failed to send email: ${error.text}`);
                 },
             );
+            formRef?.current?.reset();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
 
