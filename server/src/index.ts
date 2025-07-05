@@ -8,6 +8,7 @@ import Education from './models/Education';
 import Skills from './models/Skills';
 import Publication from "./models/Publications";
 import { VaultManager } from "./VaultManager";
+import { authentication } from "./authMiddleware";
 
 dotenv.config();
 
@@ -23,7 +24,7 @@ const PORT = Number(process.env.VITE_SERVERPORT) || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/health', (req, res) => {
+app.get('/api/portfolio/health', (req, res) => {
     res.status(200).json("Application up and running");
 });
 
@@ -36,7 +37,7 @@ app.get("/api/portfolio/Experience", async (req, res) => {
     }
 })
 
-app.post("/api/portfolio/Experience", (req, res) => {
+app.post("/api/portfolio/Experience", authentication, (req, res) => {
     const requiredKeys: string[] = ["title", "company", "startDate", "endDate", "type", "description"];
     let missingKeys = '';
 
@@ -68,7 +69,7 @@ app.get("/api/portfolio/Education", async (req, res) => {
     }
 });
 
-app.post("/api/portfolio/Education", (req, res) => {
+app.post("/api/portfolio/Education", authentication, (req, res) => {
     const requiredKeys: string[] = ["title", "institution", "start", "end", "description"];
     let missingKeys: string = '';
     try {
@@ -99,7 +100,7 @@ app.get('/api/portfolio/Skills', async (req, res) => {
     }
 })
 
-app.post('/api/portfolio/Skills', (req, res) => {
+app.post('/api/portfolio/Skills', authentication, (req, res) => {
     try {
         const requiredKeys: string[] = ['title', 'skills'];
         let missingKeys: string = '';
@@ -130,7 +131,7 @@ app.get('/api/portfolio/Publications', async(req, res) => {
     }
 })
 
-app.post("/api/portfolio/Publications", (req, res) => {
+app.post("/api/portfolio/Publications", authentication, (req, res) => {
     const requiredKeys: string[] = ["title", "journal", "publication_date", "summary", "authors"];
     let missingKeys: string = '';
     try {
